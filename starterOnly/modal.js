@@ -87,7 +87,7 @@ function validateDataOnSubmit(event) {
   }
 
   // Check if birthday is input
-  if (birthday.value.length < 2) {
+  if (birthday.value.length != 10) {
     groupBirthday.setAttribute('data-error-visible', true);
     error = true;
   } else {
