@@ -29,6 +29,7 @@
   </div>
   </div>
   <main>
+
     <div class="hero-section">
       <div class="hero-content">
         <h1 class="hero-headline">
@@ -36,76 +37,102 @@
           de jeux vidéos
         </h1>
         <p class="hero-text">
-          Vous aimez jouer ? Notre prochain évènement gaming est ouvert
-          aux réservations... Places limitées !
+          Vous aimez jouer ? Notre prochain évènement gaming est ouvert aux réservations... Places limitées !
         </p>
-        <button class="btn-signup modal-btn">
-          je m'inscris
-        </button>
+        <button class="btn-signup modal-btn">je m'inscris</button>
       </div>
       <div class="hero-img">
         <img src="./bg_img.jpg" alt="img" />
       </div>
-      <button class="btn-signup modal-btn">
-        je m'inscris
-      </button>
+      <button class="btn-signup modal-btn">je m'inscris</button>
     </div>
 
     <div class="bground">
       <div class="content">
-        <span class="modal-btn-close"></span>
+        <span class="close modal-btn-close"></span>
         <div class="modal-body">
-          <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
-            <div class="formData">
-              <label>Prénom</label><br>
-              <input class="text-control" type="text" id="first" name="first" minlength="2" /><br>
+
+          <form name="reserve" action="javascript:void(0)" method="get" id="formReserve">
+
+            <div class="formData" id="groupFirst" data-error-visible="false"
+              data-error="Veuillez entrer 2 caractères ou plus pour le champ du nom.">
+              <span id="firstError">Veuillez entrer 2 caractères ou plus pour le champ du nom.</span>
+              <label for="first">Prénom</label><br>
+              <input class="text-control" type="text" id="first" name="first" minlength="2"><br>
             </div>
-            <div class="formData">
-              <label>Nom</label><br>
-              <input class="text-control" type="text" id="last" name="last" /><br>
+
+            <!--  -->
+            <div class="formData" id="groupLast" data-error-visible="false"
+              data-error="Veuillez entrer 2 caractères ou plus pour le champ du nom.">
+              <span id="lastError">Veuillez entrer 2 caractères ou plus pour le champ du nom.</span>
+              <label for="last">Nom</label><br>
+              <input class="text-control" type="text" id="last" name="last"><br>
             </div>
-            <div class="formData">
-              <label>E-mail</label><br>
-              <input class="text-control" type="email" id="email" name="email" /><br>
+
+            <div class="formData" id="groupEmail" data-error-visible="false"
+              data-error="Veuillez saisir un email valide">
+              <label for="email">E-mail</label><br>
+              <input class="text-control" type="email" id="email" name="email"><br>
             </div>
-            <div class="formData">
-              <label>Date de naissance</label><br>
-              <input class="text-control" type="date" id="birthdate" name="birthdate" /><br>
+
+            <div class="formData" id="groupBirthday" data-error-visible="false"
+              data-error="Vous devez entrer votre date de naissance.">
+              <label for="birthday">Date de naissance</label><br>
+              <input class="text-control" type="date" id="birthday" name="birthday"><br>
             </div>
-            <div class="formData">
-              <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-              <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+
+            <div class="formData" id="groupQuantity" data-error-visible="false"
+              data-error="Veuillez saisir une valeur numérique">
+              <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+              <input type="text" class="text-control" id="quantity" name="quantity">
             </div>
+
             <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
-            <div class="formData">
-              <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" />
+
+            <div class="formData" id="groupLocation" data-error-visible="false"
+              data-error="Veuillez choisir un tournoi">
+
+              <input class="checkbox-input" type="radio" id="location1" name="location" value="New York">
               <label class="checkbox-label" for="location1">
                 <span class="checkbox-icon"></span>
-                New York</label>
-              <input class="checkbox-input" type="radio" id="location2" name="location" value="San Francisco" />
+                New York
+              </label>
+
+              <input class="checkbox-input" type="radio" id="location2" name="location" value="San Francisco">
               <label class="checkbox-label" for="location2">
                 <span class="checkbox-icon"></span>
-                San Francisco</label>
+                San Francisco
+              </label>
+
               <input class="checkbox-input" type="radio" id="location3" name="location" value="Seattle" />
               <label class="checkbox-label" for="location3">
                 <span class="checkbox-icon"></span>
-                Seattle</label>
+                Seattle
+              </label>
+
               <input class="checkbox-input" type="radio" id="location4" name="location" value="Chicago" />
               <label class="checkbox-label" for="location4">
                 <span class="checkbox-icon"></span>
-                Chicago</label>
+                Chicago
+              </label>
+
               <input class="checkbox-input" type="radio" id="location5" name="location" value="Boston" />
               <label class="checkbox-label" for="location5">
                 <span class="checkbox-icon"></span>
-                Boston</label>
+                Boston
+              </label>
+
               <input class="checkbox-input" type="radio" id="location6" name="location" value="Portland" />
               <label class="checkbox-label" for="location6">
                 <span class="checkbox-icon"></span>
-                Portland</label>
+                Portland
+              </label>
+
             </div>
 
-            <div class="formData">
-              <input class="checkbox-input" type="checkbox" id="checkbox1" checked />
+            <div class="formData" id="groupCheckbox" data-error-visible="false"
+              data-error="Vous devez accepter les conditions d'utilisation pour continuer">
+              <input class="checkbox-input" type="checkbox" id="checkbox1" checked>
               <label class="checkbox2-label" for="checkbox1" required>
                 <span class="checkbox-icon"></span>
                 J'ai lu et accepté les conditions d'utilisation.
@@ -118,11 +145,20 @@
               </label>
               <br>
             </div>
-            <input class="btn-submit" type="submit" class="button" value="C'est parti" />
+
+            <input class="btn-submit button" type="submit" value="C'est parti" />
+
           </form>
+
+          <div id="successDiv" hidden>
+            <div class="success-message">Merci pour votre inscription</div>
+            <input class="btn-submit button modal-btn-close" type="button" value="Fermer" />
+          </div>
+
         </div>
       </div>
     </div>
+
   </main>
   <footer>
     <p class="copyrights">

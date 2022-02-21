@@ -527,3 +527,8 @@ footer {
   }
 }
 
+.success-message {
+  text-align: center;
+  padding: 60px 0;
+  font-weight: 300;
+}
