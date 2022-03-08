@@ -52,45 +52,44 @@
         <span class="close modal-btn-close"></span>
         <div class="modal-body">
 
-          <form name="reserve" action="javascript:void(0)" method="get" id="formReserve">
+          <form name="reserve" action="index.html" method="get" id="formReserve">
 
-            <div class="formData" id="groupFirst" data-error-visible="false"
-              data-error="Veuillez entrer 2 caractères ou plus pour le champ du nom.">
-              <span id="firstError">Veuillez entrer 2 caractères ou plus pour le champ du nom.</span>
+            <div class="formData" id="groupFirst">
+
               <label for="first">Prénom</label><br>
-              <input class="text-control" type="text" id="first" name="first" minlength="2"><br>
+              <input class="text-control" type="text" id="first" name="first"><br>
+              <span class="errorMsg" id="firstError">Veuillez entrer 2 caractères ou plus pour le champ du nom.</span>
             </div>
 
-            <!--  -->
-            <div class="formData" id="groupLast" data-error-visible="false"
-              data-error="Veuillez entrer 2 caractères ou plus pour le champ du nom.">
-              <span id="lastError">Veuillez entrer 2 caractères ou plus pour le champ du nom.</span>
+            <div class="formData" id="groupLast">
+
               <label for="last">Nom</label><br>
               <input class="text-control" type="text" id="last" name="last"><br>
+              <span class="errorMsg" id="lastError">Veuillez entrer 2 caractères ou plus pour le champ du
+                nom.</span>
             </div>
 
-            <div class="formData" id="groupEmail" data-error-visible="false"
-              data-error="Veuillez saisir un email valide">
+            <div class="formData" id="groupEmail">
               <label for="email">E-mail</label><br>
               <input class="text-control" type="email" id="email" name="email"><br>
+              <span class="errorMsg" id="emailError">Veuillez entrer 2 caractères ou plus pour le champ du nom.</span>
             </div>
 
-            <div class="formData" id="groupBirthday" data-error-visible="false"
-              data-error="Vous devez entrer votre date de naissance.">
+            <div class="formData" id="groupBirthday">
               <label for="birthday">Date de naissance</label><br>
               <input class="text-control" type="date" id="birthday" name="birthday"><br>
+              <span class="errorMsg" id="birthdayError">Vous devez entrer votre date de naissance.</span>
             </div>
 
-            <div class="formData" id="groupQuantity" data-error-visible="false"
-              data-error="Veuillez saisir une valeur numérique">
+            <div class="formData" id="groupQuantity" data-error-visible="false">
               <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
               <input type="text" class="text-control" id="quantity" name="quantity">
+              <span class="errorMsg" id="quantityError">Veuillez saisir une valeur numérique</span>
             </div>
 
             <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
 
-            <div class="formData" id="groupLocation" data-error-visible="false"
-              data-error="Veuillez choisir un tournoi">
+            <div class="formData" id="groupLocation" data-error-visible="false">
 
               <input class="checkbox-input" type="radio" id="location1" name="location" value="New York">
               <label class="checkbox-label" for="location1">
@@ -127,15 +126,16 @@
                 <span class="checkbox-icon"></span>
                 Portland
               </label>
-
+              <span class="errorMsg" id="locationError">Veuillez choisir un tournoi</span>
             </div>
 
-            <div class="formData" id="groupCheckbox" data-error-visible="false"
-              data-error="Vous devez accepter les conditions d'utilisation pour continuer">
+            <div class="formData" id="groupCheckbox" data-error-visible="false">
               <input class="checkbox-input" type="checkbox" id="checkbox1" checked>
               <label class="checkbox2-label" for="checkbox1" required>
                 <span class="checkbox-icon"></span>
                 J'ai lu et accepté les conditions d'utilisation.
+                <span class="errorMsg" id="checkboxError">Vous devez accepter les conditions d'utilisation pour
+                  continuer</span>
               </label>
               <br>
               <input class="checkbox-input" type="checkbox" id="checkbox2" />

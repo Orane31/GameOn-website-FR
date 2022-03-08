@@ -38,21 +38,22 @@ modalForm.addEventListener("submit", validateDataOnSubmit);
 // Function to check if input form are validate
 function validateDataOnSubmit(event) {
 
+  console.log("fonciton ok")
   // Get inputs
   var first = document.getElementById("first");
-  var groupFirst = document.getElementById("groupFirst");
+  var firstError = document.getElementById("firstError");
   var last = document.getElementById("last");
-  var groupLast = document.getElementById("groupLast");
+  var lastError = document.getElementById("lastError");
   var email = document.getElementById("email");
-  var groupEmail = document.getElementById("groupEmail");
+  var emailError = document.getElementById("emailError");
   var birthday = document.getElementById("birthday");
-  var groupBirthday = document.getElementById("groupBirthday");
+  var birthdayError = document.getElementById("birthdayError");
   var quantity = document.getElementById("quantity");
-  var groupQuantity = document.getElementById("groupQuantity");
+  var quantityError = document.getElementById("quantityError");
   var locations = document.querySelectorAll('input[name="location"]');
-  var groupLocation = document.getElementById("groupLocation");
+  var locationError = document.getElementById("locationError");
   var checkbox1 = document.getElementById("checkbox1");
-  var groupCheckbox = document.getElementById("groupCheckbox");
+  var checkboxError = document.getElementById("groupCheckbox");
 
   // Stop propagation before check inputs
   event.preventDefault();
@@ -60,49 +61,39 @@ function validateDataOnSubmit(event) {
   // Boolean to know if form can be submit
   var error = false;
 
-  // Check if first name have least 2 digits
-  if (first.value.length < 2) {
-    groupFirst.setAttribute('data-error-visible', true);
-    error = true;
-  } else {
-    groupFirst.setAttribute('data-error-visible', false);
+  // Set style of input and error message if check fails
+  function setErrorMsgStyle(msg, input, isError) {
+    if (isError) {
+      error = true
+      msg.style.display = 'block';
+      if (input == locations) {
+        return
+      } else {
+        input.style.borderColor = 'red';
+      }
+
+    } else {
+      msg.style.display = 'none';
+    }
   }
+
+  // Check if first name have least 2 digits
+  setErrorMsgStyle(firstError, first, (first.value.length < 2));
 
   // Check if last name have least 2 digits
   // TODO : Check special characters and numbers 
-  if (last.value.length < 2) {
-    groupLast.setAttribute('data-error-visible', true);
-    error = true;
-  } else {
-    groupLast.setAttribute('data-error-visible', false);
-  }
-
+  setErrorMsgStyle(lastError, last, (last.value.length < 2));
 
   // Check if email is valide
-  if (!validateEmail(email.value)) {
-    groupEmail.setAttribute('data-error-visible', true);
-    error = true;
-  } else {
-    groupEmail.setAttribute('data-error-visible', false);
-  }
+  setErrorMsgStyle(emailError, email, (!validateEmail(email.value)));
 
   // Check if birthday is input
-  if (birthday.value.length != 10) {
-    groupBirthday.setAttribute('data-error-visible', true);
-    error = true;
-  } else {
-    groupBirthday.setAttribute('data-error-visible', false);
-  }
+  setErrorMsgStyle(birthdayError, birthday, (birthday.value.length != 10));
 
   // Check if quantity is numérique
-  if (isNaN(quantity.value) || quantity.value.length == 0) {
-    groupQuantity.setAttribute('data-error-visible', true);
-    error = true;
-  } else {
-    groupQuantity.setAttribute('data-error-visible', false);
-  }
+  setErrorMsgStyle(quantityError, quantity, (isNaN(quantity.value) || quantity.value.length == 0));
 
-  // Check if location is check
+  // Check as least one location is checked
   var locationIsSelected = false;
   for (const location of locations) {
     if (location.checked) {
@@ -110,20 +101,13 @@ function validateDataOnSubmit(event) {
       break;
     }
   }
-  if (!locationIsSelected) {
-    groupLocation.setAttribute('data-error-visible', true);
-    error = true;
-  } else {
-    groupLocation.setAttribute('data-error-visible', false);
-  }
 
-  // Check if CGU is check
-  if (!checkbox1.checked) {
-    groupCheckbox.setAttribute('data-error-visible', true);
-    error = true;
-  } else {
-    groupCheckbox.setAttribute('data-error-visible', false);
-  }
+  setErrorMsgStyle(locationError, locations, (!locationIsSelected));
+
+
+  // Check if CGU is accepted
+  setErrorMsgStyle(checkboxError, checkbox1, (!checkbox1.checked));
+
 
   // if no error, send form
   if (!error) {
