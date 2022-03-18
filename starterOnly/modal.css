@@ -170,7 +170,7 @@ main {
 }
 
 .content {
-  margin: 5% auto;
+  margin: auto;
   width: 100%;
   max-width: 500px;
   animation-name: modalopen;
@@ -525,6 +525,14 @@ footer {
   }
 }
 
+@media screen and (max-width: 770px) {
+  .bground {
+    margin-top: 70px;
+    height: calc(100% - 70px);
+  }
+
+
+}
 @keyframes modalopen {
   from {
     opacity: 0;

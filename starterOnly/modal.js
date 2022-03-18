@@ -53,7 +53,7 @@ function validateDataOnSubmit(event) {
   var locations = document.querySelectorAll('input[name="location"]');
   var locationError = document.getElementById("locationError");
   var checkbox1 = document.getElementById("checkbox1");
-  var checkboxError = document.getElementById("groupCheckbox");
+  var checkboxError = document.getElementById("checkboxError");
 
   // Stop propagation before check inputs
   event.preventDefault();
@@ -88,10 +88,11 @@ function validateDataOnSubmit(event) {
   setErrorMsgStyle(emailError, email, (!validateEmail(email.value)));
 
   // Check if birthday is input
+
   setErrorMsgStyle(birthdayError, birthday, (birthday.value.length != 10));
 
   // Check if quantity is numérique
-  setErrorMsgStyle(quantityError, quantity, (isNaN(quantity.value) || quantity.value.length == 0));
+  setErrorMsgStyle(quantityError, quantity, (isNaN(quantity.value) || quantity.value.length == 0) || quantity.value < 0);
 
   // Check as least one location is checked
   var locationIsSelected = false;

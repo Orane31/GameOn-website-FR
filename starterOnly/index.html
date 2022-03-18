@@ -77,14 +77,15 @@
 
             <div class="formData" id="groupBirthday">
               <label for="birthday">Date de naissance</label><br>
-              <input class="text-control" type="date" id="birthday" name="birthday"><br>
+              <input class="text-control" type="date" max="2004-03-18">
+              <br>
               <span class="errorMsg" id="birthdayError">Vous devez entrer votre date de naissance.</span>
             </div>
 
             <div class="formData" id="groupQuantity" data-error-visible="false">
               <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
               <input type="text" class="text-control" id="quantity" name="quantity">
-              <span class="errorMsg" id="quantityError">Veuillez saisir une valeur numérique</span>
+              <span class="errorMsg" id="quantityError">Veuillez saisir une valeur numérique supérieure à 0.</span>
             </div>
 
             <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
@@ -131,7 +132,7 @@
 
             <div class="formData" id="groupCheckbox" data-error-visible="false">
               <input class="checkbox-input" type="checkbox" id="checkbox1" checked>
-              <label class="checkbox2-label" for="checkbox1" required>
+              <label class="checkbox2-label" for="checkbox1">
                 <span class="checkbox-icon"></span>
                 J'ai lu et accepté les conditions d'utilisation.
                 <span class="errorMsg" id="checkboxError">Vous devez accepter les conditions d'utilisation pour
@@ -141,7 +142,7 @@
               <input class="checkbox-input" type="checkbox" id="checkbox2" />
               <label class="checkbox2-label" for="checkbox2">
                 <span class="checkbox-icon"></span>
-                Je Je souhaite être prévenu des prochains évènements.
+                Je souhaite être prévenu des prochains évènements.
               </label>
               <br>
             </div>
